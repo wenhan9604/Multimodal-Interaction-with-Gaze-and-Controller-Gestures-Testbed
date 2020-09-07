@@ -6,7 +6,7 @@ using Tobii.G2OM;
 public class ToolTipOnGaze : MonoBehaviour , IGazeFocusable
 {
     [SerializeField] private GameObject toolTip;
-    public float animationTime = 0.5f;
+    [SerializeField] private float animationTime = 0.3f;
     private bool isToolTipActive;
     //private float currentAlphaValue;
 

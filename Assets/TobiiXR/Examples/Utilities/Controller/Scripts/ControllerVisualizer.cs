@@ -8,8 +8,8 @@ namespace Tobii.XR.Examples
         [SerializeField, Tooltip("The prefab to spawn as the controller")]
         private GameObject _controllerPrefab;
 #pragma warning restore 649
-
-        private GameObject _controllerGameObject;
+        [HideInInspector]
+        public GameObject _controllerGameObject;
 
         void Start()
         {

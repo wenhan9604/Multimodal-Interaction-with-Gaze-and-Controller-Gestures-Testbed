@@ -2,43 +2,87 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.XR;
+using Tobii.XR.Examples;
 
+[RequireComponent(typeof(ControllerVisualizer))]
 public class HUDPopUp : MonoBehaviour
 {
-    [SerializeField] private List<string> HUDNames;
-    private string currentTargetName;
+    private ControllerManager controllerManager;
+    private ControllerVisualizer controllerVisualizer;
+    private GameObject controller;
+    private GameObject HUDCanvas;
+
+    public string targetName;
+    public Vector3 targetToolTipPosition;
+    public Quaternion targetToolTipOrientation;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        controllerManager = ControllerManager.Instance;
+        controllerVisualizer = GetComponent<ControllerVisualizer>();
+        controller = controllerVisualizer._controllerGameObject;
+        HUDCanvas = controller.transform.Find("Canvas").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(TobiiXR.FocusedObjects.Count > 0)
+        if (controllerManager.GetButtonPressDown(ControllerButton.Trigger))
         {
-            var focusedObject = TobiiXR.FocusedObjects[0];
-            currentTargetName = focusedObject.GameObject.name;
-
-            //if joystick pressing on something, check name against list 
-            //if name is found in list, pops up HUD 
-
-            //if joy stick is pressing
-            foreach(var name in HUDNames)
+            Debug.Log("trigger button is pressed!");
+            if (UpdateEyeGazedTarget())
             {
-                if(currentTargetName == name)
+                if(UpdateCanvas())
                 {
-                    //set boolean to true
+                    Debug.Log("successfully changed panel in Canvas");
                 }
             }
-
         }
 
-        //if joy stick is released 
-        //stopallCoroutine
-        //startCoroutine(deactivate HUD)
+        if (controllerManager.GetButtonPressUp(ControllerButton.Trigger))
+        {
+            //set inactive all panels
+            foreach (Transform panel in HUDCanvas.transform)
+            {
+                panel.gameObject.SetActive(false);
+            }
+        }
 
+    }
+
+    bool UpdateEyeGazedTarget()
+    {
+        if (TobiiXR.FocusedObjects.Count > 0)
+        {
+            var focusedObject = TobiiXR.FocusedObjects[0];
+            targetName = focusedObject.GameObject.name;
+            GameObject toolTip = focusedObject.GameObject.transform.Find("ToolTip").gameObject;
+
+            if (toolTip != null)
+            {
+                targetToolTipPosition = toolTip.transform.position;
+                targetToolTipOrientation = toolTip.transform.rotation;
+                Debug.Log("Tooltip on Target is Found and updated");
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+    bool UpdateCanvas()
+    {
+        
+        //check targetName against each child Object
+        foreach (Transform panel in HUDCanvas.transform)
+        {
+            if (panel.gameObject.name == targetName)
+            {
+                panel.gameObject.SetActive(true);
+                return true;
+            }
+        }
+        return false;     
     }
 }

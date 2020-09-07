@@ -9,7 +9,7 @@ namespace Tobii.XR.Examples
     public class HighlightAtGaze : MonoBehaviour, IGazeFocusable
     {
         public Color HighlightColor = Color.red;
-        public float AnimationTime = 0.1f;
+        public float AnimationTime = 0.3f;
 
         private Renderer _renderer;
         private Color _originalColor;
