@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.viveproeyetestwenhan.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\DSO\\Desktop\\WenHan\\Vive Pro Eye Test (WenHan)\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Vive Pro Eye Test (WenHan) [Testing]"
+        }
+      }
+    }
+  ]
+}

@@ -19,7 +19,10 @@ public class TimerAtGaze : MonoBehaviour , IGazeFocusable
         }
         set
         {
-            if(value == false)
+            // when user stops focusing on this target
+            // Timer stops and event sends out time of this gaze
+            // resets timer
+            if (value == false) 
             {
                 //Debug.Log("Timer value was " + timer + "Object name " + this.gameObject.name);
                 if (timerstop != null)

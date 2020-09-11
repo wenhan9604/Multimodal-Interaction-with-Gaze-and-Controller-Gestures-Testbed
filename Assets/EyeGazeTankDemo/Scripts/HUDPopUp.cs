@@ -13,8 +13,8 @@ public class HUDPopUp : MonoBehaviour
     private GameObject HUDCanvas;
 
     public string targetName;
-    public Vector3 targetToolTipPosition;
-    public Quaternion targetToolTipOrientation;
+    private Vector3 targetToolTipPosition;
+    private Quaternion targetToolTipOrientation;
 
     // Start is called before the first frame update
     void Start()
