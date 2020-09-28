@@ -8,17 +8,10 @@ public class ToolTipOnGaze : MonoBehaviour , IGazeFocusable
     [SerializeField] private GameObject toolTip;
     [SerializeField] private float animationTime = 0.3f;
     private bool isToolTipActive;
-    //private float currentAlphaValue;
 
     public void GazeFocusChanged(bool hasFocus)
     {
         isToolTipActive = hasFocus;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //currentAlphaValue = toolTip.GetComponent<CanvasGroup>().alpha;
     }
 
     // Update is called once per frame

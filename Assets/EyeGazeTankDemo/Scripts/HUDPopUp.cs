@@ -64,8 +64,10 @@ public class HUDPopUp : MonoBehaviour
                 targetToolTipPosition = toolTip.transform.position;
                 targetToolTipOrientation = toolTip.transform.rotation;
                 Debug.Log("Tooltip on Target is Found and updated");
+                return true;
             }
-            return true;
+            else 
+                return false;
         }
         else
             return false;
@@ -73,7 +75,6 @@ public class HUDPopUp : MonoBehaviour
 
     bool UpdateCanvas()
     {
-        
         //check targetName against each child Object
         foreach (Transform panel in HUDCanvas.transform)
         {
