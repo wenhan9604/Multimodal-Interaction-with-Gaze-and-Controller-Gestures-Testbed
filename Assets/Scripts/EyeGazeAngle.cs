@@ -10,6 +10,7 @@ public class EyeGazeAngle : MonoBehaviour
     private Vector3 camOrigin;
     private Vector3 headGazeDir;
     private float countKeyCodeSpace = 1;
+    public Vector3 eyeGazeOrigin;
 
     // Update is called once per frame
     void Update()
@@ -25,6 +26,7 @@ public class EyeGazeAngle : MonoBehaviour
         //Draw Eye Gaze Ray
         if (eyeTrackingData.GazeRay.IsValid)
         {
+            eyeGazeOrigin = eyeTrackingData.GazeRay.Origin;
             var eyeGazeDir = eyeTrackingData.GazeRay.Direction;
 
             Vector3 eyeGazeDirWithMag = eyeGazeDir * 5;
