@@ -50,6 +50,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/TriggerPress",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -81,6 +85,46 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TriggerPress",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PriTaskController/in/Pose",
+      "type": "pose"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackpadSwipeXY",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadXYPosition",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadSwipeX",
+      "type": "vector2"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadNorthClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadWestClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadSouthClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PriTaskController/in/TrackPadEastClick",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/PriTaskController/out/Haptic",
+      "type": "vibration"
     }
   ],
   "action_sets": [
@@ -98,6 +142,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/PriTaskController",
       "usage": "single"
     }
   ],

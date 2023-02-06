@@ -7,6 +7,26 @@ using UnityEngine;
 /// </summary>
 public class Target : MonoBehaviour
 {
+    private bool isTargetSelected;
+    public bool IsTargetSelected
+    {
+        get { return isTargetSelected;}
+        private set
+        {
+            isTargetSelected = value;
+        }
+    }
+
+    private bool isCollidingWithDestination;
+    public bool IsCollidingWithDestination
+    {
+        get { return isCollidingWithDestination; }
+        private set
+        {
+            isCollidingWithDestination = value;
+        }
+    }
+
     //Calculate Angular Size Support 
     Vector3 gazeOrigin;
     MeshRenderer meshRenderer; // access to sphere Center
@@ -20,6 +40,9 @@ public class Target : MonoBehaviour
     {
         get { return angularSize; }
     }
+
+    //TargetChange Color Support 
+    [SerializeField] Color targetSelectedColor = new Color(0, 0.9f, 0.5f);
 
     /*
     [SerializeField] bool debugHoriAngularSize = false;
@@ -49,11 +72,14 @@ public class Target : MonoBehaviour
 
     void Update()
     {
+        /*
         //Assumes that the cyclopean eye of user (center of both eyes) are at the eye gaze origin provided by Tobii
         gazeOrigin = Camera.main.gameObject.GetComponent<EyeGazeAngle>().eyeGazeOrigin;
         distToGazeOrigin = Vector3.Distance(meshRenderer.bounds.center, gazeOrigin);
         dirToGazeOrigin = (meshRenderer.bounds.center - gazeOrigin).normalized;
         CalculateAngularSize();
+        */
+
     }
 
     void CalculateAngularSize()
@@ -99,5 +125,34 @@ public class Target : MonoBehaviour
 
         //method 3: Using Trigo - Toa Cah Soh
         angularSize = Mathf.Atan(sphereCollider.radius / distToGazeOrigin) * Mathf.Rad2Deg * 2;
+    }
+
+    void ChangeColorOnSelection(bool isSelected)
+    {
+        IsTargetSelected = isSelected;
+        if (isSelected)
+        {
+            meshRenderer.material.SetColor("_FirstOutlineColor", targetSelectedColor);
+        }
+        else
+        {
+            meshRenderer.material.SetColor("_FirstOutlineColor", new Color(0, 0.7f, 1f));
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Destination")
+        {
+            IsCollidingWithDestination = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Destination")
+        {
+            IsCollidingWithDestination = false;
+        }
     }
 }

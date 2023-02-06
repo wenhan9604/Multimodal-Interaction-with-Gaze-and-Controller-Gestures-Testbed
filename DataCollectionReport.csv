@@ -1,0 +1,3 @@
+PriTaskModality,TargetSize,TargetDestDistance,PathDir,PriTaskElapsed,RotTaskElapsed,ColTaskElapsed,NumbWrongDeselection,NumbPathExit,NumbMismatchRotTask,NumbMismatchColTask
+1,GazeClick,small,30.000,0.000,0.000,0.000,0,0,0,0
+1,GazeClick,small,30.000,0.000,0.000,0.000,0,0,0,0
