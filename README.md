@@ -1,34 +1,50 @@
-# Final Year Project - Multimodal Interaction with Gaze and Controller Gestures
-This is my Final Year Project in collaboration between NTU and DSO, from Jan 2021 - Dec 2021. 
+# Multimodal Interaction with Gaze and Controller Gestures (Unity Project Assets)
+This repository contains the Unity project and its relevant assets to help facilitate the data collection phase of this research project that was published in ISMAR 2022 [Multimodal lnteraction with Gaze and Controller Gesture](https://www.researchgate.net/publication/366345429_Multimodal_lnteraction_with_Gaze_and_Controller_Gesture). Happy to know if this project helped anybody on any future development of this / other research projects :)
 
 # Project Description
-This project helps to facilitate the user testing conducted for the data collection in this publication (//Insert publication). 
+**Features included:**
+  - A Unity scene that comprises of the target, the dragging path and event listeners for the different metrics indicated in the publication's test scenarios.
+  - A combination of input interactions (eye gaze, controller, hand gesture input)
+  - Targets and dragging path that are interactable with the above-mentioned interactions. 
 
-Features included: 
-  - Interaction component that consisted of eye gaze, controller, hand gesture input  
-  - Interactable targets that interacted with the above-mentioned interactions. 
-  - The dragging task test scene that contains visual elements that reflected the task's progress
-  - Event callers and listeners that track the info of the task (time start and end of task, the errors produced, etc.) and stores these data in an excel sheet.
-  - 
+![DraggingTaskElementsShowcase (3)](https://user-images.githubusercontent.com/60340457/218298590-ec280d68-e39c-4a1a-8b30-b1a66070d86d.gif)
 
-Plugins / SDKs / Hardware used:
+  - Easily control user testing and data collection settings
 
-  - HTC's Vive Pro Eye - A VR headset that contains IR eye trackers
-  - Tobii Unity Plugin - Tobii plugin provided low-level info about the eye gaze (direction of vector, etc.). This helps to build the required interaction and allowed us to collect data about the participant.
+![TestSceneSS1](https://user-images.githubusercontent.com/60340457/218297924-bc0deb31-b9b2-4b03-bccf-d9cbe45cf13a.jpg)
 
-Point for improvement: 
-  - Eye jitteriness: During the research, we realized that eye jitteriness is an issue faced by the participant, and resulted in high target-dragging error rate. One of the proposed solution is to build a deadzone around the target to reduce the movement of the target induced by eye jitteriness.  
+  - Collect these data in a consolidated excel sheet available in "Streaming Asset" folder
+
+![image](https://user-images.githubusercontent.com/60340457/218296428-4818340e-a22c-43d9-9cf7-e40ee468819a.png)
+
+**To be improved:**
+  - Eye jitteriness: During the research, we realized that eye jitteriness is an issue faced by the participant and resulted in high target-dragging error rate. One of the proposed solution is to build a deadzone around the target to reduce the movement of the target induced by eye jitteriness. This proposal could be explored further in the future.
   
-  
-# How to run and install the project
-  - Unity 2020
-    - Follow this procedure 
+# Dependencies
+  - HTC's Vive Pro Eye (https://business.vive.com/sea/product/vive-pro-eye/)
+  - Unity 2019.4.14f
+    - Refer here for more info: https://unity.com/releases/editor/whats-new/2019.4.14
   - Tobii XR SDK 
-    - For this project, the HTC Vive Pro Eye headset was used. Refer here on how to setup the headset with Tobii XR SDK https://developer.tobii.com/xr/develop/unity/getting-started/vive-pro-eye/
-    - However, Tobii provides SDK for other headsets too. This project uses Tobii eye-gaze API for most of the eye-gaze-based interaciton. Therefore, this project should be compatible with other headsets, provided Tobii XR SDK is used too.
+    - HTC Vive Pro Eye headset was used in this project. Refer here for more info on the setup: https://developer.tobii.com/xr/develop/unity/getting-started/vive-pro-eye/
+    - This project uses Tobii eye-gaze API for most of the eye-gaze-based interaction. Therefore, the scripts should be compatible with other headsets that are compatible with Tobii SDK (Refer here for other compatible headsets: https://developer.tobii.com/xr/develop/unity/)
 
 # How to use the project 
-  - Navigate to the main test scene: 
-  - Change the test condition to suit your liking 
-  - Indicate the info needed for data collection (Participant ID) 
-  - Run the project 
+
+**To conduct user testing**
+  - Navigate to the main test scene: Assets/Scenes/Main Testbed Final.unity
+  - Change the experiment's conditions using the following fields:
+  - Under TaskControllers game object
+    - Experiment Controller Script (To change the metadata)
+      - Task type to either Primary task only or Primary and Rotation task
+      - Input mode: ControllerClick / GazeDwell / GazeClick
+      - Participant ID
+      - Toggle between enable (for actual data collection) or disable (for dry runs) data collection
+    - Primary Task Controller Script (To change the test condition)
+      - Toggle between randomized test condition or non-randomized (which will utilize the settings below)
+      - Change object size 
+      - Change target distance
+      - Change path direction
+
+![image](https://user-images.githubusercontent.com/60340457/218299329-56b7d2bc-8572-4193-a534-2dce2aa78a68.png)
+
+  - Run the project
