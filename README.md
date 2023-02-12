@@ -1,17 +1,18 @@
 # Multimodal Interaction with Gaze and Controller Gestures (Unity Project Assets)
-This repository contains the Unity project and its relevant assets to help facilitate the data collection phase of this research project that was published in ISMAR 2022 [Multimodal lnteraction with Gaze and Controller Gesture](https://www.researchgate.net/publication/366345429_Multimodal_lnteraction_with_Gaze_and_Controller_Gesture). Happy to know if this project helped anybody on any future development of this / other research projects :)
+This repository contains the Unity project to facilitate the data collection of this research project that was published in ISMAR 2022 [Multimodal lnteraction with Gaze and Controller Gesture](https://www.researchgate.net/publication/366345429_Multimodal_lnteraction_with_Gaze_and_Controller_Gesture). Happy to know if this project helped anybody on any future development of this / other research projects :)
 
 # Project Description
 **Features included:**
-  - A Unity scene that comprises of the target, the dragging path and event listeners for the different metrics indicated in the publication's test scenarios.
-  - A combination of input interactions (eye gaze, controller, hand gesture input)
-  - Targets and dragging path that are interactable with the above-mentioned interactions. 
+  - A Unity scene that comprises of the target, the dragging path and event listeners for the different metrics indicated in the publication's test scenarios. 
+  - User interaction with a combination of different interaction modes (eye gaze, controller, hand gesture input).
+  - Targets and dragging path that are interactable with the above-mentioned interactions (shown in the gif below). 
+  - A full demo of the task and input interaction modes is available here: https://youtu.be/zxWkTnVsHIM
 
 ![DraggingTaskElementsShowcase (3)](https://user-images.githubusercontent.com/60340457/218298590-ec280d68-e39c-4a1a-8b30-b1a66070d86d.gif)
 
   - Easily control user testing and data collection settings
 
-![TestSceneSS1](https://user-images.githubusercontent.com/60340457/218297924-bc0deb31-b9b2-4b03-bccf-d9cbe45cf13a.jpg)
+![TestSceneSS2](https://user-images.githubusercontent.com/60340457/218300095-0ba0812d-25fa-4d43-9abe-d7ca1b7db304.jpg)
 
   - Collect these data in a consolidated excel sheet available in "Streaming Asset" folder
 
